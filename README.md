@@ -1,2 +1,2 @@
 # Victor's Personal Website
-## URL : https://victorsmseo.github.io
+URL : https://victorsmseo.github.io
