@@ -4,6 +4,14 @@ html, body {
     text-transform: uppercase;
     text-align: center;
 }
+header h1 {
+    font-weight: 200;
+    font-size: 5em;
+}
+section h1 {
+    font-weight: 200;
+    font-size: 2em;
+}
 a {
     text-decoration: none;
 }
@@ -14,14 +22,15 @@ a:active {
 a:hover {
     color: rgb(75, 75, 75);
 }
-header h1 {
-    font-weight: 200;
-    font-size: 5em;
-}
-section h1 {
-    font-weight: 200;
-    font-size: 2em;
+hr {
+    width: 25%;
 }
 .bold {
     font-weight: bold;
+}
+.hr-bottom {
+    margin-top: 3em;
+}
+.hr-top {
+    margin-bottom: 3em;
 }
