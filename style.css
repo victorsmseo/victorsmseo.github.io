@@ -4,8 +4,24 @@ html, body {
     text-transform: uppercase;
     text-align: center;
 }
+a {
+    text-decoration: none;
+}
+a:visited,
+a:active {
+    color: black;
+}
+a:hover {
+    color: rgb(75, 75, 75);
+}
 header h1 {
     font-weight: 200;
     font-size: 5em;
-    
+}
+section h1 {
+    font-weight: 200;
+    font-size: 2em;
+}
+.bold {
+    font-weight: bold;
 }
