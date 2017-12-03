@@ -13,39 +13,38 @@ body {
     background-attachment: fixed;
     background-size: cover;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 100;
     text-transform: uppercase;
     text-align: center;
 }
 header {
     padding: 10px;
 }
-section {
-    padding-bottom: 50px;
-}
-footer {
-    position: absolute;
-    background-color: rgba(80, 80, 80, 0.5);
-    height: 50px;
-    width: 100%;
-    bottom:0;
-}
-h1,
-h2 {
-    font-weight: 200;
-}
 header h1 {
     font-size: 5em;
+}
+section {
+    padding-bottom: 40px;
 }
 section h1 {
     font-size: 3em;
     font-weight: 400;
 }
-header h2 {
-    font-size: 2em;
+footer {
+    position: absolute;
+    background-color: rgba(80, 80, 80, 0.5);
+    height: 40px;
+    width: 100%;
+    bottom:0;
 }
-section h2 {
-    font-size: 1.5em;
+footer a:hover {
+    color: rgb(31, 31, 31);
+}
+footer p {
+    font-size: 0.75em;
+}
+h1,
+h2 {
+    font-weight: 200;
 }
 a {
     text-decoration: none;
@@ -56,17 +55,15 @@ a:active {
     color: black;
 }
 a:hover {
-    color: rgb(75, 75, 75);
+    color: rgb(80, 80, 80);
 }
 hr {
-    width: 25%;
+    width: 30px;
+    border: 0;
+    border-top: 2px solid black;
+    margin-top: -20px;
+    margin-bottom: 30px;
 }
 .bold {
     font-weight: bold;
-}
-.hr-bottom {
-    margin-top: 3em;
-}
-.hr-top {
-    margin-bottom: 3em;
 }
