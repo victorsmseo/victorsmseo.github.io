@@ -29,6 +29,10 @@ section h1 {
     font-size: 3em;
     font-weight: 400;
 }
+section h2 a {
+    border-style: solid;
+    padding: 10px;
+}
 footer {
     position: absolute;
     background-color: rgba(80, 80, 80, 0.5);
@@ -40,7 +44,16 @@ footer a:hover {
     color: rgb(31, 31, 31);
 }
 footer p {
+    color: rgb(29, 29, 29);
     font-size: 0.75em;
+}
+footer p a:link,
+footer p a:visited,
+footer p a:active {
+    color: rgb(29, 29, 29);
+}
+footer p a:hover {
+    color: black;
 }
 h1,
 h2 {
