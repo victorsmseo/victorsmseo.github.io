@@ -1,44 +1,55 @@
-html,
 body {
     margin: 0;
-    padding: 0;
-    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    text-transform: uppercase;
+    background-image: url("images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
 }
-#container {
+.fc {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    min-height: 100vh;
+}
+.fc>* {
+    border: dashed 1px grey;
+}
+/* #container {
     min-height: 100%;
     position: relative;
-    background-image: url("images/background.jpg");
+    
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    text-transform: uppercase;
+    
     text-align: center;
-}
+} */
 header {
+    flex: 2 2;
     padding: 10px;
 }
 header h1 {
     font-size: 5em;
 }
+main {
+    flex: 20 4;
+}
 section {
-    padding-bottom: 40px;
-}
-section h1 {
-    font-size: 3em;
-    font-weight: 400;
-}
-section h2 a {
-    border-style: solid;
-    padding: 10px;
+    flex: 20 1;
+    flex-basis: 5;
 }
 footer {
-    position: absolute;
-    background-color: rgba(80, 80, 80, 0.5);
-    height: 40px;
+    /* position: absolute; */
+    /* background-color: rgba(80, 80, 80, 0.5); */
+    /* height: 40px;
     width: 100%;
-    bottom:0;
+    bottom:0; */
+    flex: 1 1;
+    flex-basis: 0;
 }
 footer a:hover {
     color: rgb(31, 31, 31);
@@ -58,6 +69,10 @@ footer p a:hover {
 h1,
 h2 {
     font-weight: 200;
+    border: dashed 1px grey;
+}
+p {
+    border: dashed 1px grey;
 }
 a {
     text-decoration: none;
