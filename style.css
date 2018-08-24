@@ -1,7 +1,36 @@
+/* 
+Background: #EDC7B7 
+Peach: #EDC7B7
+Grey: #BAB2B5
+Blue: #123C69
+Pink: #AC3B61
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
 body {
     text-align: center;
+    font-family: 'Do Hyeon', sans-serif;
+    background-color: #EEE2DC;
+    text-decoration: none;
+}
+h1 {
+    color: #AC3B61;
+}
+a {
+    color: #BAB2B5;
+    text-decoration: none;
+}
+footer {
+    color: #123C69;
+}
+a:visited {
+    text-decoration: none;
+    color: #123C69;
+}
+a:hover {
+    color: rgba(18, 60, 105, 0.8);
 }
 #myCanvas {
-    background-color: white;
     border-style: solid;
+    border-color: #BAB2B5;
 }
