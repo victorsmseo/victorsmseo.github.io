@@ -30,25 +30,14 @@ function startAnimation() {
 function animationLoop(timeStamp) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // ctx.save();
-    // ctx.translate(positionX, canvas.height/3+positionY);
-    // drawMario3();
-    // ctx.restore();
-
-    var loopNum = 20;
+    var loopTime = 20;
 
     ctx.save();
     ctx.translate(positionX, canvas.height/3+positionY);
-    if (time%loopNum >= 0 && time%loopNum < loopNum/4) {
-        drawMario1();
-    } else if (time%loopNum >= loopNum/4 && time%loopNum < loopNum/2) {
+    if (time >= 0 && time < loopTime/2) {
         drawMario2();
-    } else if (time%loopNum >= loopNum/2 && time%loopNum < 3*loopNum/4) {
-        // ctx.translate(-unit,0);
+    } else if (time >= loopTime/2 && time <= loopTime) {
         drawMario3();
-        // ctx.restore();
-    } else if (time%loopNum >= 3*loopNum/4 && time%loopNum < loopNum) {
-        drawMario2();
     }
     ctx.restore();
 	
@@ -59,7 +48,11 @@ function animationLoop(timeStamp) {
 		positionX = -marioWidth;
     }
     
-    time += 1;
+    if (time >= loopTime) {
+        time = 0;
+    } else {
+        time += 1;
+    }
 
 	requestId = requestAnimationFrame(animationLoop);
 }
