@@ -7,6 +7,7 @@ var positionX = 0;
 var isFacingRight = true;
 
 const marioWidth = 12*unit;
+const speed = 10;
 
 window.onload = init;
 
@@ -23,28 +24,29 @@ function startAnimation() {
 function animationLoop(timeStamp) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	translateMario();
-	changeFacing();
+	drawCharacter();
+	changeFacingDirection();
 	changePositionX();
 
 	requestId = requestAnimationFrame(animationLoop);
 }
 
-function translateMario() {
+// Draw the character depending on which direction it's facing.
+function drawCharacter() {
 	ctx.save();
     if (isFacingRight) {
         ctx.translate(positionX, canvas.height/3);
     } else {
         ctx.translate(marioWidth, 0);
         ctx.translate(positionX, canvas.height/3);
-        ctx.scale(-1, 1);    
+        ctx.scale(-1, 1);
     }
     drawMario();
     ctx.restore();
 }
 
-function changeFacing() {
-	// Changes isFacingRight if it hits the border.
+// Change the facing direction depending on where the character is.
+function changeFacingDirection() {
 	if (positionX == canvas.width - marioWidth) {
 		isFacingRight = false;
 	} else if (positionX == 0) {
@@ -52,10 +54,11 @@ function changeFacing() {
 	}
 }
 
+// Change the x position depending on which direction the character is facing.
 function changePositionX() {
 	if (isFacingRight == true) {
-		positionX += 10;
+		positionX += speed;
 	} else if (isFacingRight == false) {
-		positionX -= 10;
+		positionX -= speed;
 	}
 }
