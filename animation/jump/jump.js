@@ -2,15 +2,16 @@ var canvas;
 var ctx;
 var requestId;
 
-var unit = 10;
+var unit = 7;
 var time = 0;
 var positionX = 0;
-var positionY = 20*unit;
+var positionY = 0;
 var isFacingRight = true;
+var isJumping = false;
 
 const marioWidth = 12*unit;
 const loopTime = 20;
-const speed = 10;
+const speed = 8;
 
 const red = "#FF0000";
 const brown = "#880000";
@@ -30,18 +31,8 @@ function startAnimation() {
 }
 
 function animationLoop(timeStamp) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Background
-    ctx.fillStyle = "#5B8BFF";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.save();
-    ctx.translate(0, 36*unit);
-    ctx.scale(0.5,0.5);
-    drawGroundBlocks(17,2);
-    ctx.restore();
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Animation
     walkingAnimation();
     changePositionX();
     changeTime();
@@ -52,7 +43,7 @@ function animationLoop(timeStamp) {
 // Draw the character depending on .
 function walkingAnimation() {
     ctx.save();
-    ctx.translate(positionX, positionY);
+    ctx.translate(positionX, canvas.height/2);
     if (time >= 0 && time < loopTime/2) {
         drawMario2();
     } else if (time >= loopTime/2 && time <= loopTime) {

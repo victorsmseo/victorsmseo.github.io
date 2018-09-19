@@ -26,6 +26,7 @@ nav {
 footer {
     color: rgb(119, 114, 116);
 }
+a:link,
 a:visited {
     text-decoration: none;
     color: #123C69;
