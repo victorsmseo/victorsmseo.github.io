@@ -4,6 +4,7 @@ var requestId;
 
 var unit = 10;
 var positionX = 0;
+var positionY = 20*unit;
 var isFacingRight = true;
 
 const marioWidth = 12*unit;
@@ -24,6 +25,15 @@ function startAnimation() {
 function animationLoop(timeStamp) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+	// Background
+	ctx.fillStyle = "#5B8BFF";
+	ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.save();
+    ctx.translate(0, 36*unit);
+    ctx.scale(0.5,0.5);
+    drawIceBlocks(17,2);
+    ctx.restore();
+
 	drawCharacter();
 	changeFacingDirection();
 	changePositionX();
@@ -35,10 +45,10 @@ function animationLoop(timeStamp) {
 function drawCharacter() {
 	ctx.save();
     if (isFacingRight) {
-        ctx.translate(positionX, canvas.height/3);
+        ctx.translate(positionX, positionY);
     } else {
         ctx.translate(marioWidth, 0);
-        ctx.translate(positionX, canvas.height/3);
+        ctx.translate(positionX, positionY);
         ctx.scale(-1, 1);
     }
     drawMario();

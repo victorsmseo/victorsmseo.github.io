@@ -8,6 +8,7 @@ function drawGroundBlocks(w, h) {
         }
     }
 }
+
 function drawGroundBlock() {
     ctx.fillStyle = "#F84100"; // orange
     ctx.fillRect(0,0,16*unit,16*unit);
