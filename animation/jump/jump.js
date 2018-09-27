@@ -12,6 +12,7 @@ var isJumping = false;
 const marioWidth = 12*unit;
 const loopTime = 20;
 const speed = 8;
+const jumpSpeed = 6;
 
 const red = "#FF0000";
 const brown = "#880000";
@@ -23,6 +24,7 @@ window.onload = init;
 function init() {
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
+    positionY = canvas.height/2;
 	startAnimation();
 }
 
@@ -35,7 +37,9 @@ function animationLoop(timeStamp) {
 
     walkingAnimation();
     changePositionX();
+    changePositionY();
     changeTime();
+    changeJump();
 
 	requestId = requestAnimationFrame(animationLoop);
 }
@@ -43,16 +47,19 @@ function animationLoop(timeStamp) {
 // Draw the character depending on .
 function walkingAnimation() {
     ctx.save();
-    ctx.translate(positionX, canvas.height/2);
-    if (time >= 0 && time < loopTime/2) {
-        drawMario2();
-    } else if (time >= loopTime/2 && time <= loopTime) {
+    ctx.translate(positionX, positionY);
+    if (isJumping == true) {
         drawMario3();
+    } else if (isJumping == false) {
+        if (time >= 0 && time < loopTime/2) {
+            drawMario2();
+        } else if (time >= loopTime/2 && time <= loopTime) {
+            drawMario3();
+        }
     }
     ctx.restore();
 }
 
-// Change the x position
 function changePositionX() {
     if (positionX < canvas.width) {
 		positionX += speed;
@@ -61,10 +68,29 @@ function changePositionX() {
     }
 }
 
+function changePositionY() {
+    const jumpPosition = canvas.width/3;
+    const peakPosition = canvas.width/2;
+    const landPosition = 2*canvas.width/3;
+    if ((jumpPosition <= positionX) && (positionX <= peakPosition)) {
+        positionY -= jumpSpeed;
+    } else if ((peakPosition <= positionX) && (positionX <= landPosition)) {
+        positionY += jumpSpeed;
+    }
+}
+
 function changeTime() {
     if (time >= loopTime) {
         time = 0;
     } else {
         time += 1;
+    }
+}
+
+function changeJump() {
+    if ((canvas.width/3 <= positionX) && (positionX <= 2*canvas.width/3)) {
+        isJumping = true;
+    } else {
+        isJumping = false;
     }
 }
