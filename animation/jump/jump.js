@@ -35,6 +35,7 @@ function startAnimation() {
 function animationLoop(timeStamp) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    drawBackground();
     walkingAnimation();
     changePositionX();
     changePositionY();
@@ -93,4 +94,14 @@ function changeJump() {
     } else {
         isJumping = false;
     }
+}
+
+function drawBackground() {
+    ctx.fillStyle = "#5B8BFF";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.save();
+    ctx.translate(0,52*unit);
+    ctx.scale(0.5,0.5);
+    drawGroundBlocks(25,3);
+    ctx.restore();
 }
