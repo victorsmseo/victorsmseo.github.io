@@ -2,7 +2,7 @@ var canvas;
 var ctx;
 var requestId;
 
-var unit = 7;
+var unit = 5;
 var time = 0;
 var positionX = 0;
 var positionY = 0;
@@ -12,7 +12,7 @@ var isJumping = false;
 const marioWidth = 12*unit;
 const loopTime = 20;
 const speed = 8;
-const jumpSpeed = 6;
+const jumpSpeed = 12;
 
 const red = "#FF0000";
 const brown = "#880000";
@@ -24,9 +24,7 @@ window.onload = init;
 function init() {
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
-
-    positionY = canvas.height/2;
-
+    positionY = 3*canvas.height/4 - 7*unit;
 	startAnimation();
 }
 
@@ -38,6 +36,7 @@ function animationLoop(timeStamp) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     drawBackground();
+    drawBricks();
     walkingAnimation();
     changePositionX();
     changePositionY();
@@ -91,9 +90,7 @@ function changeTime() {
 }
 
 function changeJump() {
-    const jumpPosition = canvas.width/3;
-    const landPosition = 2*canvas.width/3;
-    if ((jumpPosition <= positionX) && (positionX <= landPosition)) {
+    if ((canvas.width/3 <= positionX) && (positionX <= 2*canvas.width/3)) {
         isJumping = true;
     } else {
         isJumping = false;
@@ -104,8 +101,14 @@ function drawBackground() {
     ctx.fillStyle = "#5B8BFF";
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.save();
-    ctx.translate(0,52*unit);
-    ctx.scale(0.5,0.5);
-    drawGroundBlocks(25,3);
+    ctx.translate(0,84*unit);
+    drawGroundBlocks(17,1);
+    ctx.restore();
+}
+
+function drawBricks() {
+    ctx.save();
+    ctx.translate(60*unit,30*unit);
+    drawBrickBlocks(8,1);
     ctx.restore();
 }
