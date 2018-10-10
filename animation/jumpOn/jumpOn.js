@@ -12,7 +12,12 @@ var isJumping = false;
 const marioWidth = 12*unit;
 const loopTime = 20;
 const speed = 8;
-const jumpSpeed = 12;
+const jumpSpeed = 10;
+
+const jumpPosition = 17*unit;
+const brickPosition = 60*unit;
+const fallPosition = 187*unit;
+const landPosition = 230*unit;
 
 const red = "#FF0000";
 const brown = "#880000";
@@ -42,6 +47,7 @@ function animationLoop(timeStamp) {
     changePositionY();
     changeTime();
     changeJump();
+    // drawRuler(10);
 
 	requestId = requestAnimationFrame(animationLoop);
 }
@@ -71,12 +77,9 @@ function changePositionX() {
 }
 
 function changePositionY() {
-    const jumpPosition = canvas.width/3;
-    const peakPosition = canvas.width/2;
-    const landPosition = 2*canvas.width/3;
-    if ((jumpPosition <= positionX) && (positionX <= peakPosition)) {
+    if ((jumpPosition <= positionX) && (positionX <= brickPosition)) {
         positionY -= jumpSpeed;
-    } else if ((peakPosition <= positionX) && (positionX <= landPosition)) {
+    } else if ((fallPosition <= positionX) && (positionX < landPosition)) {
         positionY += jumpSpeed;
     }
 }
@@ -90,7 +93,9 @@ function changeTime() {
 }
 
 function changeJump() {
-    if ((canvas.width/3 <= positionX) && (positionX <= 2*canvas.width/3)) {
+    if ((jumpPosition <= positionX) && (positionX <= brickPosition)) {
+        isJumping = true;
+    } else if ((fallPosition <= positionX) && (positionX <= landPosition)) {
         isJumping = true;
     } else {
         isJumping = false;
