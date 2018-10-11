@@ -47,7 +47,6 @@ function animationLoop(timeStamp) {
     changePositionY();
     changeTime();
     changeJump();
-    // drawRuler(10);
 
 	requestId = requestAnimationFrame(animationLoop);
 }
