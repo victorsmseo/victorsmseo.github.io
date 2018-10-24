@@ -101,7 +101,7 @@ function changeJump() {
 }
 
 function drawBackground() {
-    ctx.fillStyle = "#5B8BFF";
+    ctx.fillStyle = "#5B8BFF"; // Sky Blue
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.save();
     ctx.translate(0,52*unit);

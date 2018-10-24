@@ -122,19 +122,17 @@ function drawBricks() {
 }
 
 function brickAnimation() {
+    const halfBrickTime = 10;
     ctx.save();
     ctx.translate(114 * unit, 20 * unit);
     if (positionX >= peakPosition) {
         brickTime += 1;
-        if (brickTime <= 10) {
+        if (brickTime <= halfBrickTime) {
             ctx.translate(0,-2*brickTime);
-            drawBrickBlocks(1, 1);
-        } else if (brickTime <= 20) {
+        } else if (brickTime <= 2*halfBrickTime) {
             ctx.translate(0,-20+(brickTime-10));
-            drawBrickBlocks(1, 1);
-        } else {
-            drawBrickBlocks(1, 1);
         }
+        drawBrickBlocks(1, 1);
     } else {
         drawBrickBlocks(1, 1);
     }
