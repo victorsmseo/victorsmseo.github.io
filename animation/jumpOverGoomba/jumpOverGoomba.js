@@ -39,7 +39,7 @@ function animationLoop(timeStamp) {
     changeXPosGoomba();
     animateMario();
     animateGoomba();
-    
+
 	requestId = requestAnimationFrame(animationLoop);
 }
 
