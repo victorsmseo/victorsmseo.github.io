@@ -111,3 +111,10 @@ function animateGoomba() {
         drawGoomba2(xPosGoomba,yPosGoomba);
     }
 }
+
+// function drawBackground() {
+//     ctx.save();
+//     ctx.translate(2*)
+//     ctx.restore
+// }
+

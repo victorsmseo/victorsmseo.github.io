@@ -39,3 +39,14 @@ a:hover {
     border-style: solid;
     border-color: #BAB2B5;
 }
+
+
+a:link,
+a:visited {
+    text-decoration: none;
+    /* color: */
+}
+a:hover {
+    background-color: #123C69;
+    /* color:  */
+}

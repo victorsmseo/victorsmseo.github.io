@@ -16,7 +16,7 @@ function init() {
     ctx = canvas.getContext("2d");
 
     // 3. Run the startAnimation function
-	// startAnimation();
+	startAnimation();
 }
 
 // 4. Create startAnimation function
@@ -33,6 +33,7 @@ function animationLoop(timeStamp) {
 
 	// 8. Draw image in canvas
 	ctx.fillRect(positionX, 0, 50, 50);
+	drawBackground();
 
 	// 9. Move image
 	positionX += 10;
@@ -40,3 +41,4 @@ function animationLoop(timeStamp) {
 	// 10. Call this function again (Repeat from step 6)
 	requestId = requestAnimationFrame(animationLoop);
 }
+
