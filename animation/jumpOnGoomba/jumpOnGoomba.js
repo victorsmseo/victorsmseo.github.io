@@ -12,9 +12,13 @@ var isJumping = false;
 
 const timeLoop = 20;
 const yPosGoomba = 68;
-const jumpPos = 75;
-const peakPos = 120;
-const landPos = 165;
+const jumpPos = 40;
+const peak1Pos = 85;
+const hitPos = 120;
+const peak2Pos = 135;
+const landPos = 160;
+
+const squishPos = 125;
 
 window.onload = init;
 
@@ -40,7 +44,6 @@ function animationLoop(timeStamp) {
     animateMario();
     animateGoomba();
 
-    // drawRuler(10);
 	requestId = requestAnimationFrame(animationLoop);
 }
 
@@ -78,9 +81,13 @@ function changeXPosMario() {
 }
 
 function changeYPosMario() {
-    if ((jumpPos <= xPosMario) && (xPosMario < peakPos)) {
+    if ((jumpPos <= xPosMario) && (xPosMario < peak1Pos)) {
         yPosMario -= speed;
-    } else if ((peakPos <= xPosMario) && (xPosMario < landPos)) {
+    } else if ((peak1Pos <= xPosMario) && (xPosMario < hitPos)) {
+        yPosMario += speed;
+    } else if ((hitPos <= xPosMario) && (xPosMario < peak2Pos)) {
+        yPosMario -= speed;
+    } else if ((peak2Pos <= xPosMario) && (xPosMario < landPos)) {
         yPosMario += speed;
     }
 }
@@ -106,9 +113,15 @@ function animateMario() {
 }
 
 function animateGoomba() {
-    if ((0 <= time) && (time < timeLoop/2)) {
-        drawGoomba1(xPosGoomba,yPosGoomba);
-    } else if ((timeLoop/2 <= time) && (time <= timeLoop)) {
-        drawGoomba2(xPosGoomba,yPosGoomba);
+    if (xPosMario >= hitPos) {
+        if (xPosMario <= landPos+15) {
+            drawGoomba3(squishPos,yPosGoomba);
+        }
+    } else {
+        if ((0 <= time) && (time < timeLoop/2)) {
+            drawGoomba1(xPosGoomba,yPosGoomba);
+        } else if ((timeLoop/2 <= time) && (time <= timeLoop)) {
+            drawGoomba2(xPosGoomba,yPosGoomba);
+        }
     }
 }
