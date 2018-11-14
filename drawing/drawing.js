@@ -8,6 +8,15 @@ window.onload = init;
 function init() {
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
-    // drawRuler(10);
-    // ctx.fillRect(unit,unit,10*unit,10*unit);
+}
+
+function transitionAnimation() {
+    var nav = document.getElementById('sideNav');
+    var can = document.getElementById("canvas");
+    nav.classList.add('sideNavAnimation');
+    can.classList.add('canvasAnimation2');
+}
+
+function goHome() {
+    window.location.href = "../index.html";
 }
