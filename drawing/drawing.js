@@ -1,12 +1,13 @@
 var canvas;
 var ctx;
-var unit = 10;
+
+var unit = 5;
 
 window.onload = init;
 
 function init() {
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
-    // drawMario3();
-    drawRuler(5);
+    // drawRuler(10);
+    // ctx.fillRect(unit,unit,10*unit,10*unit);
 }

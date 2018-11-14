@@ -40,4 +40,3 @@ function animationLoop(timeStamp) {
 	// 10. Call this function again (Repeat from step 6)
 	requestId = requestAnimationFrame(animationLoop);
 }
-

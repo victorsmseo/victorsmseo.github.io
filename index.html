@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Victor's Website</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Victor's Website</h1>
-        </header>
-        <nav>
-            <a href="drawing/drawing.html">Drawing</a>
-            <br>
-            <a href="animation/animation.html">Animation</a>
-            <br>
-            –––––––––
-        </nav>
-        <footer>
-            <p>&copy; 2018</p>
-        </footer>
-    </body>
+
+<head>
+    <title>Victor's Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Victor's Website</h1>
+    </header>
+    <nav id="nav">
+        <a onclick="test();setTimeout(goToDrawing, 280);" href="#">Drawing</a>
+        <br>
+        <a onclick="setTimeout(goToAnimation, 500);" href="#a">Animation</a>
+        <br>
+        –––––––––
+    </nav>
+    <footer>
+        <p>&copy; 2018</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
 </html>

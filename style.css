@@ -1,31 +1,57 @@
-/* 
-Background: #EDC7B7 
-Peach: #EDC7B7
-Grey: #BAB2B5
-Blue: #123C69
-Pink: #AC3B61
-*/
-
+/* Colors: Background - #EDC7B7, Peach - #EDC7B7, Grey - #BAB2B5, Blue - #123C69, Pink - #AC3B61 */
 @import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
+
 body {
-    text-align: center;
-    font-family: 'Do Hyeon', sans-serif;
+    align-content: space-around;
     background-color: #EEE2DC;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Do Hyeon', sans-serif;
+    margin: 0px;
+    text-align: center;
     text-decoration: none;
+    overflow: hidden; /* No Scroll */
+    height: 100vh;
 }
-h1 {
+header {
+    background-color: rgba(186, 178, 181, 0.1);
+    border-bottom-style: solid;
+    border-color: rgba(186, 178, 181, 0.2);
+    border-width: 2px;
     color: #AC3B61;
-    font-size: 3em;
+    font-size: 1.5em;
+    height: 14%;
+    padding: 15px 0px 0px 0px;
+}
+nav {
+    color: #AC3B61;
+    flex: 1;
+    font-size: 1.5em;
+    padding-top: 20px;
+    position: relative;
+}
+/* nav a:active {
+    animation: navAnimation 1s ease alternate;
+} */
+section {
+    align-items: center;
+    color: #AC3B61;
+    display: flex;
+    flex: 1;
+    flex-wrap: nowrap;
+    font-size: 1.2em;
+    justify-content: space-around;
+}
+footer {
+    background-color: rgba(186, 178, 181, 0.1);
+    border-color: rgba(186, 178, 181, 0.2);
+    border-top-style: solid;
+    color: rgb(119, 114, 116);
+    height: 6%;
 }
 a {
     color: #BAB2B5;
     text-decoration: none;
-}
-nav {
-    color: #AC3B61;
-}
-footer {
-    color: rgb(119, 114, 116);
 }
 a:link,
 a:visited {
@@ -35,7 +61,56 @@ a:visited {
 a:hover {
     color: rgba(18, 60, 105, 0.8);
 }
+.sideNav {
+    animation: sideNavAnimation1 1s ease alternate;
+    position: relative;
+    margin-right: 8px;
+}
+footer:hover {
+    animation: sideNavAnimation2 1s ease alternate;
+}
+.drawing {
+    animation: navAnimation 1s ease alternate;
+}
 #myCanvas {
+    animation: canvasAnimation 1s ease alternate;
     border-style: solid;
     border-color: #BAB2B5;
+    height: 70vh;
+    position: relative;
+    margin-left: 0.5%;
+    width: 85vw;
+}
+@keyframes canvasAnimation {
+    0%   {right:50px; border-color: #EEE2DC;}
+    100% {right:0px;}
+}
+@-webkit-keyframes canvasAnimation {
+    0%   {right:50px; border-color: #EEE2DC;}
+    100% {right:0px;}
+}
+@keyframes navAnimation {
+    0%   {bottom: 0px;}
+    40% {opacity: 0;}
+    100% {bottom: 120px; opacity: 0;}
+}
+@-webkit-keyframes navAnimation {
+    0%   {right:50px; border-color: black; }
+    100% {right:0px;}
+}
+@keyframes sideNavAnimation1 {
+    0%   {left:50px; color: #EDC7B7;}
+    100% {left:0px;}
+}
+@-webkit-keyframes sideNavAnimation1 {
+    0%   {left:50px; color: #EDC7B7;}
+    100% {left:0px;}
+}
+@keyframes sideNavAnimation2 {
+    0%   {left:0px; color: #EDC7B7;}
+    100% {left:200px;}
+}
+@-webkit-keyframes sideNavAnimation2 {
+    0%   {left:0px; color: #EDC7B7;}
+    100% {left:200px;}
 }
