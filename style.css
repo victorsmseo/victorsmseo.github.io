@@ -24,7 +24,7 @@ header {
     padding: 15px 0px 0px 0px;
 }
 nav {
-    animation: navAnimation1 1s ease alternate;
+    animation: navAnimation1 1s ease;
     color: #AC3B61;
     flex: 1;
     font-size: 1.5em;
@@ -59,62 +59,66 @@ a:visited {
 a:hover {
     color: rgba(18, 60, 105, 0.8);
 }
-.canvasAnimation2 {
+.canvas {
+    animation: canvasAnimation1 1s ease alternate;
     position: relative;
+}
+.canvasAnimation2 {
     animation: canvasAnimation2 1s ease alternate;
 }
 .sideNav {
     animation: sideNavAnimation1 1s ease alternate;
-    position: relative;
-    margin-right: 8px;
 }
 .sideNavAnimation {
     animation: sideNavAnimation2 1s ease alternate;
 }
-.navAnimation2 {
-    animation: navAnimation2 1s ease alternate;
+.navAnimationRev {
+    animation: navAnimationRev 1s ease;
+}
+#canvas {
+    position: relative;
 }
 #myCanvas {
-    animation: canvasAnimation1 1s ease alternate;
     border-style: solid;
     border-color: #BAB2B5;
-    height: 70vh;
     position: relative;
-    margin-left: 0.5%;
-    width: 85vw;
+}
+#sideNav {
+    position: relative;
+    margin-right: 10px;
 }
 @keyframes canvasAnimation1 {
-    0%   {right:200px; border-color: #EEE2DC;}
+    0%   {right:600px; border-color: #EEE2DC;}
     100% {right:0px;}
 }
 @-webkit-keyframes canvasAnimation1 {
-    0%   {right:50px; border-color: #EEE2DC;}
+    0%   {right:600px; border-color: #EEE2DC;}
     100% {right:0px;}
 }
 @keyframes canvasAnimation2 {
     0%   {right:0px;}
-    100% {right:200px; border-color: #EEE2DC;}
+    100% {right:600px; border-color: #EEE2DC;}
 }
 @-webkit-keyframes canvasAnimation2 {
     0%   {right:0px;}
-    100% {right:200px; border-color: #EEE2DC;}
+    100% {right:600px; border-color: #EEE2DC;}
 }
 @keyframes navAnimation1 {
+    0%   {bottom: 120px; opacity: 0;}
+    40%  {opacity: 0;}
+    100% {bottom: 0px;}
+}
+@-webkit-keyframes navAnimation1 {
     0%   {bottom: 120px; opacity: 0;}
     40% {opacity: 0;}
     100% {bottom: 0px;}
 }
-@-webkit-keyframes navAnimation1 {
+@keyframes navAnimationRev {
     0%   {bottom: 0px;}
     40% {opacity: 0;}
     100% {bottom: 120px; opacity: 0;}
 }
-@keyframes navAnimation2 {
-    0%   {bottom: 0px;}
-    40% {opacity: 0;}
-    100% {bottom: 120px; opacity: 0;}
-}
-@-webkit-keyframes navAnimation2 {
+@-webkit-keyframes navAnimationRev {
     0%   {bottom: 0px;}
     40% {opacity: 0;}
     100% {bottom: 120px; opacity: 0;}

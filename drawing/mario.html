@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Victor's Website</title>
-        <link rel="stylesheet" href="../style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Drawing</h1>
-        </header>
-        <nav>
-            <a href="../index.html">Home</a>
+
+<head>
+    <title>Victor's Website</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Drawing</h1>
+    </header>
+    <section>
+        <div id="canvas">
+            <canvas id="myCanvas"></canvas>
+        </div>
+        <div id="sideNav">
+            <a onclick="transitionAnimation(); setTimeout(goHome, 300);" href="#">Home</a>
             <br>
-            –––––––––
+            ––––––––––––
             <br>
             Mario
-        </nav>
-        <br>
-        <section>
-            <canvas id="myCanvas" height="500" width="1300"></canvas>
-        </section>
-        <footer>
-            <p>&copy; 2018</p>
-        </footer>
-        <script src="mario.js"></script> 
-        <script src="mario1.js"></script>
-        <script src="mario2.js"></script>
-        <script src="mario3.js"></script>
-    </body>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2018</p>
+    </footer>
+    <script src="mario.js"></script>
+    <script>
+        var canvas;
+        var ctx;
+        var unit = 30;
+        window.onload = init;
+        function init() {
+            canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            ctx.canvas.width  = 0.84*window.innerWidth;
+	        ctx.canvas.height = 0.7*window.innerHeight;
+            drawMario1(3,3);
+        }
+        function transitionAnimation() {
+            var nav = document.getElementById('sideNav');
+            var can = document.getElementById("canvas");
+            nav.classList.add('sideNavAnimation');
+            can.classList.add('canvasAnimation2');
+        }
+        function goHome() {
+            window.location.href = "../index.html";
+        }
+    </script>
+</body>
+
 </html>

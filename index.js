@@ -1,6 +1,6 @@
 function navAnimation() {
     var nav = document.getElementById('nav');
-    nav.classList.add('navAnimation2');
+    nav.classList.add('navAnimationRev');
 }
 
 function goToDrawing() {

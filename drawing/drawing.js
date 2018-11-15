@@ -8,6 +8,8 @@ window.onload = init;
 function init() {
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
+    ctx.canvas.width  = 0.85*window.innerWidth;
+	ctx.canvas.height = 0.7*window.innerHeight;
 }
 
 function transitionAnimation() {

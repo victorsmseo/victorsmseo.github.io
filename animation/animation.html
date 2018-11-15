@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Victor's Website</title>
-        <link rel="stylesheet" href="../style.css">
-    </head>
-    <body>
-        <header>
-            <h1>Animation</h1>
-        </header>
-        <nav>
-            <a href="../index.html">Home</a>
+
+<head>
+    <title>Victor's Website</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Animation</h1>
+    </header>
+    <section>
+        <div class="canvas" id="canvas">
+            <canvas id="myCanvas"></canvas>
+        </div>
+        <div class="sideNav" id="sideNav">
+            <a onclick="transitionAnimation(); setTimeout(goHome, 300);" href="#">Home</a>
             <br>
-            –––––––––
+            ––––––––––––
             <br>
             <a href="backAndForth/backAndForth.html">Back & Forth</a>
             <br>
@@ -26,14 +32,12 @@
             <a href="jumpOverGoomba/jumpOverGoomba.html">Jump over Goomba</a>
             <br>
             <a href="jumpOnGoomba/jumpOnGoomba.html">Jump on Goomba</a>
-            <br><br>
-        </nav>
-        <section>
-            <canvas id="myCanvas" height="500" width="1300"></canvas>
-        </section>
-        <footer>
-            <p>&copy; 2018</p>
-        </footer>
-        <script src="animation.js"></script> 
-    </body>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2018</p>
+    </footer>
+    <script src="animation.js"></script>
+</body>
+
 </html>

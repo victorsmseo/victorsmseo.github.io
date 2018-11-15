@@ -13,7 +13,9 @@ window.onload = init; // When the window loads, run the init function
 
 function init() {
     canvas = document.getElementById("myCanvas");
-    ctx = canvas.getContext("2d");
+	ctx = canvas.getContext("2d");
+	ctx.canvas.width  = 0.85*window.innerWidth;
+	ctx.canvas.height = 0.7*window.innerHeight;
 
     // 3. Run the startAnimation function
 	startAnimation();
@@ -39,4 +41,15 @@ function animationLoop(timeStamp) {
 
 	// 10. Call this function again (Repeat from step 6)
 	requestId = requestAnimationFrame(animationLoop);
+}
+
+function transitionAnimation() {
+    var nav = document.getElementById('sideNav');
+    var can = document.getElementById("canvas");
+    nav.classList.add('sideNavAnimation');
+    can.classList.add('canvasAnimation2');
+}
+
+function goHome() {
+    window.location.href = "../index.html";
 }

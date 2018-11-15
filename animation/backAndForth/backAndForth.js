@@ -2,12 +2,12 @@ var canvas;
 var ctx;
 var requestId;
 
-var unit = 5;
+var unit = 8;
 var positionX = 0;
 var isFacingRight = true;
 
 const MARIO_WIDTH = 12;
-const POSITION_Y = 68;
+const POSITION_Y = 47;
 const SPEED = 2;
 
 window.onload = init;
@@ -15,6 +15,8 @@ window.onload = init;
 function init() {
     canvas = document.getElementById("myCanvas");
 	ctx = canvas.getContext("2d");
+	ctx.canvas.width  = 0.85*window.innerWidth;
+	ctx.canvas.height = 0.7*window.innerHeight;
 	startAnimation();
 }
 
@@ -45,8 +47,8 @@ function drawBackground() {
 	ctx.fillStyle = "#5B8BFF"; // Sky Blue
 	ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.save();
-    ctx.translate(0, 84*unit);
-    drawIceBlocks(17,1);
+    ctx.translate(0, 63*unit);
+    drawIceBlocks(10,1);
     ctx.restore();
 }
 
@@ -74,4 +76,15 @@ function changePositionX() {
 	} else {
 		positionX -= SPEED;
 	}
+}
+
+function transitionAnimation() {
+    var nav = document.getElementById('sideNav');
+    var can = document.getElementById("canvas");
+    nav.classList.add('sideNavAnimation');
+    can.classList.add('canvasAnimation2');
+}
+
+function goHomeFromProject() {
+    window.location.href = "../../index.html";
 }
