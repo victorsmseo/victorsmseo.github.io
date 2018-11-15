@@ -60,17 +60,17 @@ a:hover {
     color: rgba(18, 60, 105, 0.8);
 }
 .canvas {
-    animation: canvasAnimation1 1s ease alternate;
+    animation: canvasAnimation1 1s ease;
     position: relative;
 }
 .canvasAnimation2 {
-    animation: canvasAnimation2 1s ease alternate;
+    animation: canvasAnimation2 1s ease;
 }
 .sideNav {
-    animation: sideNavAnimation1 1s ease alternate;
+    animation: sideNavAnimation1 1s ease;
 }
 .sideNavAnimation {
-    animation: sideNavAnimation2 1s ease alternate;
+    animation: sideNavAnimation2 1s ease;
 }
 .navAnimationRev {
     animation: navAnimationRev 1s ease;
@@ -88,7 +88,7 @@ a:hover {
     margin-right: 10px;
 }
 @keyframes canvasAnimation1 {
-    0%   {right:600px; border-color: #EEE2DC;}
+    0%   {right:100%; border-color: #EEE2DC;}
     100% {right:0px;}
 }
 @-webkit-keyframes canvasAnimation1 {
@@ -97,7 +97,7 @@ a:hover {
 }
 @keyframes canvasAnimation2 {
     0%   {right:0px;}
-    100% {right:600px; border-color: #EEE2DC;}
+    100% {right:100%; border-color: #EEE2DC;}
 }
 @-webkit-keyframes canvasAnimation2 {
     0%   {right:0px;}
@@ -133,9 +133,9 @@ a:hover {
 }
 @keyframes sideNavAnimation2 {
     0%   {left:0px; color: #EDC7B7;}
-    100% {left:200px;}
+    100% {left:300px;}
 }
 @-webkit-keyframes sideNavAnimation2 {
     0%   {left:0px; color: #EDC7B7;}
-    100% {left:200px;}
+    100% {left:300px;}
 }

@@ -2,13 +2,13 @@ var canvas;
 var ctx;
 var requestId;
 
-var unit = 8;
 var positionX = 0;
 var isFacingRight = true;
 
+const unit = 8;
 const MARIO_WIDTH = 12;
 const POSITION_Y = 47;
-const SPEED = 2;
+const SPEED = 1.5;
 
 window.onload = init;
 

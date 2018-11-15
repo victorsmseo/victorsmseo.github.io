@@ -15,7 +15,7 @@
             <canvas id="myCanvas"></canvas>
         </div>
         <div id="sideNav">
-            <a onclick="transitionAnimation(); setTimeout(goHome, 300);" href="#">Home</a>
+            <a onclick="transitionAnimation(); setTimeout(goHome, 650);" href="#">Home</a>
             <br>
             ––––––––––––
             <br>
@@ -26,17 +26,26 @@
         <p>&copy; 2018</p>
     </footer>
     <script src="mario.js"></script>
+    <script src="../drawing/groundBlock.js"></script>
     <script>
         var canvas;
         var ctx;
-        var unit = 30;
+        var unit = 10;
         window.onload = init;
         function init() {
             canvas = document.getElementById("myCanvas");
             ctx = canvas.getContext("2d");
             ctx.canvas.width  = 0.84*window.innerWidth;
-	        ctx.canvas.height = 0.7*window.innerHeight;
-            drawMario1(3,3);
+            ctx.canvas.height = 0.7*window.innerHeight;
+            drawBackground();
+            drawMario1(64,31);
+        }
+        function drawBackground() {
+            ctx.fillStyle = "#5B8BFF";
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.save();
+            drawGroundBlocks(0,47,8,1);
+            ctx.restore();
         }
         function transitionAnimation() {
             var nav = document.getElementById('sideNav');
