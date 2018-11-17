@@ -7,7 +7,6 @@ var isFacingRight = true;
 
 const unit = 8;
 const MARIO_WIDTH = 12;
-const POSITION_Y = 47;
 const SPEED = 1.5;
 
 window.onload = init;
@@ -36,6 +35,8 @@ function animationLoop(timeStamp) {
 }
 
 function animateMario() {
+	const WINDOW_HEIGHT = canvas.height / unit;
+	const POSITION_Y = WINDOW_HEIGHT-32;
     if (isFacingRight) {
 		drawMario1(positionX, POSITION_Y);
     } else {
@@ -44,11 +45,13 @@ function animateMario() {
 }
 
 function drawBackground() {
+	const WINDOW_HEIGHT = canvas.height / unit;
+	const WINDOW_WIDTH = canvas.width / unit;
 	ctx.fillStyle = "#5B8BFF"; // Sky Blue
 	ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.save();
-    ctx.translate(0, 63*unit);
-    drawIceBlocks(10,1);
+    ctx.translate(0, WINDOW_HEIGHT*unit-16*unit);
+    drawIceBlocks(WINDOW_WIDTH/16,1);
     ctx.restore();
 }
 
