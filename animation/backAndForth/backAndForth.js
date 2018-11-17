@@ -1,6 +1,8 @@
 var canvas;
 var ctx;
 var requestId;
+var WINDOW_WIDTH;
+var WINDOW_HEIGHT;
 
 var positionX = 0;
 var isFacingRight = true;
@@ -16,6 +18,8 @@ function init() {
 	ctx = canvas.getContext("2d");
 	ctx.canvas.width  = 0.85*window.innerWidth;
 	ctx.canvas.height = 0.7*window.innerHeight;
+	WINDOW_HEIGHT = canvas.height / unit;
+    WINDOW_WIDTH = canvas.width / unit;
 	startAnimation();
 }
 
@@ -35,7 +39,6 @@ function animationLoop(timeStamp) {
 }
 
 function animateMario() {
-	const WINDOW_HEIGHT = canvas.height / unit;
 	const POSITION_Y = WINDOW_HEIGHT-32;
     if (isFacingRight) {
 		drawMario1(positionX, POSITION_Y);
@@ -45,8 +48,6 @@ function animateMario() {
 }
 
 function drawBackground() {
-	const WINDOW_HEIGHT = canvas.height / unit;
-	const WINDOW_WIDTH = canvas.width / unit;
 	ctx.fillStyle = "#5B8BFF"; // Sky Blue
 	ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.save();
@@ -62,32 +63,10 @@ function drawMarioFacingLeft(x,y) {
 	ctx.restore();
 }
 
-// Change the facing direction depending on where the character is.
 function changeFacingDirection() {
-	const WINDOW_WIDTH = canvas.width / unit;
 	if (positionX >= WINDOW_WIDTH+MARIO_WIDTH) {
 		isFacingRight = false;
 	} else if (positionX == -2*MARIO_WIDTH) {
 		isFacingRight = true;
 	}
-}
-
-// Change the x position depending on which direction the character is facing.
-function changePositionX() {
-	if (isFacingRight) {
-		positionX += SPEED;
-	} else {
-		positionX -= SPEED;
-	}
-}
-
-function transitionAnimation() {
-    var nav = document.getElementById('sideNav');
-    var can = document.getElementById("canvas");
-    nav.classList.add('sideNavAnimation');
-    can.classList.add('canvasAnimation2');
-}
-
-function goHomeFromProject() {
-    window.location.href = "../../index.html";
 }

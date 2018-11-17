@@ -30,22 +30,24 @@
     <script>
         var canvas;
         var ctx;
-        var unit = 10;
+        var WINDOW_WIDTH;
+        var WINDOW_HEIGHT;
+        const unit = 10;
         window.onload = init;
         function init() {
             canvas = document.getElementById("myCanvas");
             ctx = canvas.getContext("2d");
             ctx.canvas.width  = 0.84*window.innerWidth;
             ctx.canvas.height = 0.7*window.innerHeight;
+            WINDOW_HEIGHT = canvas.height / unit;
+	        WINDOW_WIDTH = canvas.width / unit; 
             drawBackground();
-            drawMario1(64,31);
+            drawMario1(WINDOW_WIDTH/2,WINDOW_HEIGHT-32);
         }
         function drawBackground() {
             ctx.fillStyle = "#5B8BFF";
             ctx.fillRect(0,0,canvas.width,canvas.height);
-            ctx.save();
-            drawGroundBlocks(0,47,8,1);
-            ctx.restore();
+            drawGroundBlocks(0,WINDOW_HEIGHT-16,WINDOW_WIDTH/16,1);
         }
         function transitionAnimation() {
             var nav = document.getElementById('sideNav');

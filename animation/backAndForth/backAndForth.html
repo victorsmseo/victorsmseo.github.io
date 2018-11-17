@@ -41,6 +41,24 @@
     <script src="../../drawing/mario.js"></script>
     <script src="../../drawing/iceBlock.js"></script>
     <script src="../../drawing/ruler.js"></script>
+    <script>
+        function changePositionX() {
+            if (isFacingRight) {
+                positionX += SPEED;
+            } else {
+                positionX -= SPEED;
+            }
+        }
+        function transitionAnimation() {
+            var nav = document.getElementById('sideNav');
+            var can = document.getElementById("canvas");
+            nav.classList.add('sideNavAnimation');
+            can.classList.add('canvasAnimation2');
+        }
+        function goHomeFromProject() {
+            window.location.href = "../../index.html";
+        }
+    </script>
 </body>
 
 </html>
