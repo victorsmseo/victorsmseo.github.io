@@ -1,32 +1,37 @@
 var canvas;
 var ctx;
 var requestId;
+var positionY;
 
-var unit = 7;
+var WINDOW_WIDTH;
+var WINDOW_HEIGHT;
+var JUMP_POSITION;
+var PEAK_POSITION;
+var LAND_POSITION;
+
+var unit = 8;
 var time = 0;
 var positionX = 0;
-var positionY = 0;
-var isFacingRight = true;
 var isJumping = false;
 
-const marioWidth = 12*unit;
-const loopTime = 20;
-const speed = 8;
-const jumpSpeed = 6;
-
-const red = "#FF0000";
-const brown = "#880000";
-const orange = "#FFA800";
-const blue = "#3D00FE";
+const LOOP_TIME = 20;
+const SPEED = 1;
+const JUMP_SPEED = 1.5;
+const MARIO_WIDTH = 16;
 
 window.onload = init;
 
 function init() {
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
-
-    positionY = canvas.height/2;
-
+    ctx.canvas.width  = 0.85*window.innerWidth;
+    ctx.canvas.height = 0.7*window.innerHeight;
+    WINDOW_HEIGHT = canvas.height / unit;
+    WINDOW_WIDTH = canvas.width / unit;
+    JUMP_POSITION = WINDOW_WIDTH/3;
+    PEAK_POSITION = WINDOW_WIDTH/2;
+    LAND_POSITION = 2*WINDOW_WIDTH/3;
+    positionY = WINDOW_HEIGHT-32;
 	startAnimation();
 }
 
@@ -38,74 +43,61 @@ function animationLoop(timeStamp) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     drawBackground();
-    walkingAnimation();
+    animateMario();
+    changeIsJumping();
     changePositionX();
     changePositionY();
     changeTime();
-    changeJump();
 
 	requestId = requestAnimationFrame(animationLoop);
 }
 
-// Draw the character depending on .
-function walkingAnimation() {
-    ctx.save();
-    ctx.translate(positionX, positionY);
-    if (isJumping == true) {
-        drawMario3();
-    } else if (isJumping == false) {
-        if (time >= 0 && time < loopTime/2) {
-            drawMario2();
-        } else if (time >= loopTime/2 && time <= loopTime) {
-            drawMario3();
+function animateMario() {
+    if (isJumping) {
+        drawMario3(positionX, positionY);
+    } else {
+        if (0 <= time && time < LOOP_TIME/2) {
+            drawMario2(positionX, positionY);
+        } else if (LOOP_TIME/2 <= time && time <= LOOP_TIME) {
+            drawMario3(positionX, positionY);
         }
     }
-    ctx.restore();
 }
 
-function changePositionX() {
-    if (positionX < canvas.width) {
-		positionX += speed;
-	} else {
-		positionX = -marioWidth;
-    }
-}
-
-function changePositionY() {
-    const jumpPosition = canvas.width/3;
-    const peakPosition = canvas.width/2;
-    const landPosition = 2*canvas.width/3;
-    if ((jumpPosition <= positionX) && (positionX <= peakPosition)) {
-        positionY -= jumpSpeed;
-    } else if ((peakPosition <= positionX) && (positionX <= landPosition)) {
-        positionY += jumpSpeed;
-    }
-}
-
-function changeTime() {
-    if (time >= loopTime) {
-        time = 0;
-    } else {
-        time += 1;
-    }
-}
-
-function changeJump() {
-    const jumpPosition = canvas.width/3;
-    const landPosition = 2*canvas.width/3;
-    if ((jumpPosition <= positionX) && (positionX <= landPosition)) {
+function changeIsJumping() {
+    if ((JUMP_POSITION <= positionX) && (positionX <= LAND_POSITION)) {
         isJumping = true;
     } else {
         isJumping = false;
     }
 }
 
+function changePositionX() {
+	if (positionX <= WINDOW_WIDTH) {
+		positionX += SPEED;
+	} else {
+		positionX = -MARIO_WIDTH;
+	}
+}
+
+function changePositionY() {
+    if ((JUMP_POSITION <= positionX) && (positionX < PEAK_POSITION)) {
+        positionY -= JUMP_SPEED;
+    } else if ((PEAK_POSITION <= positionX) && (positionX < LAND_POSITION)) {
+        positionY += JUMP_SPEED;
+    }
+}
+
+function changeTime() {
+    if (time >= LOOP_TIME) {
+        time = 0;
+    } else {
+        time += 1;
+    }
+}
+
 function drawBackground() {
-    ctx.fillStyle = "#5B8BFF"; // Sky Blue
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.save();
-    ctx.translate(0,52*unit);
-    ctx.scale(0.5,0.5);
-    drawGroundBlocks(25,3);
-    ctx.restore();
+	ctx.fillStyle = "#5B8BFF"; // Sky Blue
+	ctx.fillRect(0,0,canvas.width,canvas.height);
+    drawGroundBlocks(0,WINDOW_HEIGHT-16,WINDOW_WIDTH/16,1);
 }
