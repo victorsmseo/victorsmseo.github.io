@@ -1,8 +1,8 @@
-function drawBrickBlocks(w, h) {
+function drawBrickBlocks(x, y, w, h) {
     for (i = 0; i < w; i++) {
         for (j = 0; j < h; j++) {
             ctx.save();
-            ctx.translate(16*i*unit,16*j*unit);
+            ctx.translate(16*i*unit+x*unit,16*j*unit+y*unit);
             drawBrickBlock();
             ctx.restore();
         }

@@ -10,3 +10,7 @@ function goToDrawing() {
 function goToAnimation() {
     window.location.href = "animation/animation.html";
 }
+
+function goToWebsite() {
+    window.location.href = "exampleWebsite/index.html";
+}
