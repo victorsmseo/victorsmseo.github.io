@@ -115,5 +115,5 @@ function drawBackground() {
     ctx.fillStyle = "#5B8BFF"; // Sky Blue
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     drawGroundBlocks(0, WINDOW_HEIGHT - 16, WINDOW_WIDTH / 16, 1);
-    drawBrickBlocks(BRICK_POSITION, WINDOW_HEIGHT - 80, (WINDOW_WIDTH / 48) - 1, 1);
+    drawBrickBlocks(BRICK_POSITION, WINDOW_HEIGHT - 80, (WINDOW_WIDTH / 48), 1);
 }
