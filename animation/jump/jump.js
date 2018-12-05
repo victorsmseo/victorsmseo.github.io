@@ -88,7 +88,7 @@ function changePositionY() {
     if ((JUMP_POSITION <= positionX) && (positionX < PEAK_POSITION)) {
         positionY -= jumpSpeed;
         jumpSpeed -= ACCELERATION;
-    } else if ((PEAK_POSITION < positionX) && (positionX < LAND_POSITION)) {
+    } else if ((PEAK_POSITION <= positionX) && (positionX < LAND_POSITION)) {
         positionY += jumpSpeed;
         jumpSpeed += ACCELERATION;
     } else {
