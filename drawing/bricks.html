@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Victor's Website</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Drawing</h1>
+    </header>
+    <section>
+        <div id="canvas">
+            <canvas id="myCanvas"></canvas>
+        </div>
+        <div id="sideNav">
+            <a onclick="transitionAnimation(); setTimeout(goHome, 650);" href="#">Home</a>
+            <br>
+            ––––––––––––
+            <br>
+            Bricks
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2018</p>
+    </footer>
+    <script src="drawBricks.js"></script>
+    <script src="ruler.js"></script>
+    <script>
+        var canvas;
+        var ctx;
+        const UNIT = 10;
+        window.onload = init;
+        function init() {
+            canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            ctx.canvas.width  = 0.84*window.innerWidth;
+            ctx.canvas.height = 0.7*window.innerHeight;
+            drawBackground();
+            drawBricks(0,60,11);
+            // drawRuler(10);
+        }
+        function drawBackground() {
+            ctx.fillStyle = "blue";
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+        }
+    </script>
+</body>
+
+</html>
